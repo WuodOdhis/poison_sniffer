@@ -8,3 +8,5 @@ Milestone 1 focuses on a single protection path:
 The initial implementation is dependency-free so the core engine can be exercised with the Node.js built-in test runner.
 
 TypeScript is scaffolded at the workspace root so the project can migrate package-by-package without blocking the current runtime tests.
+
+For a loadable browser build, run `npm run package:extension`. That emits a self-contained unpacked extension in `dist/extension`.

@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "node --test apps/*/test/*.test.js packages/*/test/*.test.js",
+    "package:extension": "node ./scripts/package-extension.mjs",
+    "test": "node --test apps/*/test/*.test.js packages/*/test/*.test.js scripts/test/*.test.js",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {
