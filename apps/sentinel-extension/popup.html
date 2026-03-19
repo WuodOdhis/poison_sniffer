@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sentinel</title>
+    <link rel="stylesheet" href="./popup.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <p class="eyebrow">Milestone 1</p>
+        <h1>Send Guard</h1>
+        <p class="lede">Stops obvious lookalike addresses introduced by dust transactions before funds are sent.</p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Send Transaction</h2>
+          <button id="reset-demo" class="ghost-button" type="button">Reset Demo</button>
+        </div>
+
+        <form id="send-form" class="send-form">
+          <label>
+            <span>Destination Address</span>
+            <input id="destination-address" name="destinationAddress" autocomplete="off" spellcheck="false">
+          </label>
+
+          <label>
+            <span>Amount (ETH)</span>
+            <input id="amount-native" name="amountNative" type="number" min="0" step="0.0001" value="1.2500">
+          </label>
+
+          <label>
+            <span>Blocklist API Endpoint</span>
+            <input id="api-endpoint" name="apiEndpoint" placeholder="Optional, e.g. http://localhost:3000">
+          </label>
+
+          <div class="contact-buttons" id="contact-buttons"></div>
+
+          <button class="primary-button" type="submit">Review Send</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Trusted Contacts</h2>
+        </div>
+        <div id="trusted-contacts" class="list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Recent Low-Value Activity</h2>
+        </div>
+        <div id="recent-activity" class="list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Assessment Result</h2>
+        </div>
+        <div id="assessment-output" class="assessment-output"></div>
+      </section>
+    </main>
+
+    <dialog id="risk-modal" class="risk-modal">
+      <form method="dialog" class="modal-card">
+        <p class="eyebrow">High Risk</p>
+        <h2 id="modal-title">Unverified address detected</h2>
+        <p id="modal-message" class="modal-message"></p>
+
+        <div class="diff-card">
+          <div>
+            <p class="diff-label">Your trusted address</p>
+            <div id="reference-diff" class="diff-line"></div>
+          </div>
+          <div>
+            <p class="diff-label">Address you pasted</p>
+            <div id="candidate-diff" class="diff-line"></div>
+          </div>
+        </div>
+
+        <div id="reason-list" class="reason-list"></div>
+
+        <div class="modal-actions">
+          <button id="cancel-action" value="cancel" class="ghost-button">This is wrong, cancel</button>
+          <button id="block-action" value="block" class="secondary-button">Add to blocklist</button>
+          <button id="proceed-action" value="proceed" class="primary-button">This is correct, proceed anyway</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="./popup.js"></script>
+  </body>
+</html>

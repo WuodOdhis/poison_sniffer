@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Sentinel",
+  "version": "0.1.0",
+  "description": "Address poisoning protection MVP for send-time review.",
+  "action": {
+    "default_title": "Sentinel",
+    "default_popup": "popup.html"
+  },
+  "permissions": []
+}
